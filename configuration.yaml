@@ -1,0 +1,111 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+
+  latitude: 37.7697
+  longitude: -122.3933
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 3
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/Los_Angeles
+  # Customization file
+  customize: !include customize.yaml
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  # api_password: !secret http_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  # base_url: example.duckdns.org:8123
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+mqtt:
+  broker: 127.0.0.1
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Weather prediction
+sensor:
+  - platform: yr
+
+# Text to speech
+tts:
+  - platform: google
+
+# Cloud
+cloud:
+
+zwave:
+  usb_path: /zwavestick
+  network_key: "0x1A, 0x50, 0x0F, 0x17, 0xA1, 0x31, 0xA5, 0x58, 0x51, 0x13, 0xBA, 0xFF, 0x5D, 0x45, 0xD4, 0x25"
+
+light:
+  - platform: lifx
+  - platform: mqtt
+    name: "Office Light"
+    state_topic: "stat/sonoff-officelight/POWER"
+    command_topic: "cmnd/sonoff-officelight/POWER"
+    availability_topic: "tele/sonoff-officelight/LWT"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    retain: true
+switch:
+  - platform: mqtt
+    name: "Ikea Gateway Switch"
+    state_topic: "stat/sonoff-ikeagateway/POWER"
+    command_topic: "cmnd/sonoff-ikeagateway/POWER"
+    availability_topic: "tele/sonoff-ikeagateway/LWT"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    retain: true
+
+
+tradfri:
+  allow_tradfri_groups: false
+
+device_tracker:
+  - platform: asuswrt
+    host: 192.168.1.1
+    username: admin
+    ssh_key: /config/ha_rsa
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
