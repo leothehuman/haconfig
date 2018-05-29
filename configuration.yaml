@@ -68,7 +68,7 @@ cloud:
 
 zwave:
   usb_path: /zwavestick
-  network_key: "0x1A, 0x50, 0x0F, 0x17, 0xA1, 0x31, 0xA5, 0x58, 0x51, 0x13, 0xBA, 0xFF, 0x5D, 0x45, 0xD4, 0x25"
+  network_key: !secret network_key
 
 light:
   - platform: lifx
@@ -83,6 +83,89 @@ light:
     payload_available: "Online"
     payload_not_available: "Offline"
     retain: true
+  - platform: mqtt
+    name: "Micke Light"
+    state_topic: "stat/sonoff-micke/POWER"
+    command_topic: "cmnd/sonoff-micke/POWER"
+    availability_topic: "tele/sonoff-micke/LWT"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    retain: true
+  - platform: mqtt
+    name: "Closet Light"
+    effect_list:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+      - 11
+      - 12
+    state_topic: "stat/sonoff-closet/POWER"
+    command_topic: "cmnd/sonoff-closet/POWER"
+    brightness_state_topic: "stat/sonoff-closet/Dimmer"
+    brightness_command_topic: "cmnd/sonoff-closet/Dimmer"
+    brightness_scale: 100
+    rgb_command_template: "{{ '%02x%02x%02x00' | format(red, green, blue)}}"
+    rgb_state_topic: "stat/sonoff-closet/Color"
+    rgb_command_topic: "cmnd/sonoff-closet/Color"
+    white_command_template: "{{ '000000%02x' }}"
+    white_state_topic: "stat/sonoff-closet/Color"
+    white_command_topic: "cmnd/sonoff-closet/Color"
+    effect_command_topic: "cmnd/sonoff-closet/Scheme"
+    effect_state_topic: "stat/sonoff-closet/Scheme"
+    state_value_template: "{{ value }}"
+    brightness_value_template: "{{ value }}"
+    effect_value_template: "{{ value }}"
+    rgb_command_mode: hex
+    retain: true
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+  - platform: mqtt
+    name: "Desk Light"
+    effect_list:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+      - 11
+      - 12
+    state_topic: "stat/sonoff-desk/POWER"
+    command_topic: "cmnd/sonoff-desk/POWER"
+    brightness_state_topic: "stat/sonoff-desk/Dimmer"
+    brightness_command_topic: "cmnd/sonoff-desk/Dimmer"
+    brightness_scale: 100
+    rgb_command_template: "{{ '%02x%02x%02x' | format(red, green, blue)}}"
+    rgb_state_topic: "stat/sonoff-desk/Color"
+    rgb_command_topic: "cmnd/sonoff-desk/Color"
+    white_command_template: "{{ '000000%02x' }}"
+    effect_command_topic: "cmnd/sonoff-desk/Scheme"
+    effect_state_topic: "stat/sonoff-desk/Scheme"
+    state_value_template: "{{ value }}"
+    brightness_value_template: "{{ value }}"
+    effect_value_template: "{{ value }}"
+    rgb_command_mode: hex
+    retain: true
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
 switch:
   - platform: mqtt
     name: "Ikea Gateway Switch"
@@ -95,6 +178,28 @@ switch:
     payload_available: "Online"
     payload_not_available: "Offline"
     retain: true
+  - platform: mqtt
+    name: "Custom Switch"
+    state_topic: "stat/sonoff-custom/POWER"
+    command_topic: "cmnd/sonoff-custom/POWER"
+    availability_topic: "tele/sonoff-custom/LWT"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    retain: true
+sensor:
+  - platform: mqtt
+    name: "Remote Temperature"
+    state_topic: "tele/wemos1/SENSOR"
+    value_template: "{{ value_json['DHT22'].Temperature }}"
+    unit_of_measurement: "C"
+  - platform: mqtt
+    name: "Remote Humidity"
+    state_topic: "tele/wemos1/SENSOR"
+    value_template: "{{ value_json['DHT22'].Humidity }}"
+    unit_of_measurement: "%"
 
 
 tradfri:

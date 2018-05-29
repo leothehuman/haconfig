@@ -2,6 +2,8 @@ light.bedroom:
   hidden: true
 light.living_room:
   hidden: true
+light.office:
+  hidden: true
 switch.switch:
   icon: mdi:lightbulb
 switch.switch_2:
