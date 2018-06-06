@@ -8,3 +8,8 @@ switch.switch:
   icon: mdi:lightbulb
 switch.switch_2:
   icon: mdi:lightbulb
+
+binary_sensor.sensor:
+  hidden: true
+zwave.zooz_zse40_4in1_sensor:
+  hidden: true

@@ -7,13 +7,10 @@ home:
     - group.lights
     - group.people
     - group.devices
+    - group.all_devices
     - group.sensors
     - group.switches
     - media_player.living_room_speaker
-devices:
-  name: Devices
-  entities:
-    - group.all_devices
 lights:
   name: Lights
   entities:
@@ -38,16 +35,47 @@ switches:
     - switch.custom_switch
 sensors:
   name: Sensors
-  view: no
   entities:
     - sensor.tradfri_remote_control
     - sensor.yr_symbol
     - sensor.remote_temperature
     - sensor.remote_humidity
+    - sensor.remote_illuminance
+    - binary_sensor.remote_motion
+    - sensor.office_temperature
+    - sensor.office_humidity
+    - sensor.office_illuminance
+    - binary_sensor.office_motion
     - sun.sun
 people:
   name: People
-  view: no
   entities:
-    - device_tracker.404e36231fd8
-    - device_tracker.ac3743dc7e71
+    - input_boolean.leo_home
+    - input_boolean.emiji_home
+devices:
+  name: Devices
+  entities:
+    - device_tracker.nexus10
+    - device_tracker.emiji_laptop
+    - device_tracker.leo_macbookpro
+    - device_tracker.asusgamepad
+    - device_tracker.leo_pixel
+    - device_tracker.emiji_pixel
+stationary:
+  name: Stationary Devices
+  entities:
+    - device_tracker.gwb8d7af2b61b7
+    - device_tracker.esp_7d288a
+    - device_tracker.googlehome
+    - device_tracker.78a6e132a2a0
+    - device_tracker.d073d524fc07
+    - device_tracker.amazon08a3023aa
+    - device_tracker.samsung
+    - device_tracker.home
+    - device_tracker.sonoff_micke
+    - device_tracker.sonoff_office
+    - device_tracker.sonoff_custom
+    - device_tracker.magichome_closet
+    - device_tracker.chromecast
+    - device_tracker.sonoff_desk
+    - device_tracker.sonoff0076
