@@ -301,5 +301,5 @@ device_tracker:
     ssh_key: /config/ha_rsa
 
 group: !include groups.yaml
-automation: !include_dir_merge_named automation/
+automation: !include_dir_list automation/
 script: !include scripts.yaml

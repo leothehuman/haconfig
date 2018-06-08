@@ -1,3 +1,4 @@
+alias: Leo Departed
 trigger:
   platform: state
   entity_id: device_tracker.leo_pixel

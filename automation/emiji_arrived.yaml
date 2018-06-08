@@ -1,3 +1,4 @@
+alias: Emiji Arrived
 trigger:
   platform: state
   entity_id: device_tracker.emiji_pixel

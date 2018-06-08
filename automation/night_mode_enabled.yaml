@@ -1,3 +1,4 @@
+alias: Night Mode Enabled
 trigger:
   platform: state
   entity_id: input_boolean.night_mode

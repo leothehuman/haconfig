@@ -1,3 +1,4 @@
+alias: Emiji Departed
 trigger:
   platform: state
   entity_id: device_tracker.emiji_pixel
