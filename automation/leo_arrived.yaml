@@ -1,9 +1,8 @@
-alias: "Leo Arrived"
 trigger:
-  - platform: state
-    entity_id: device_tracker.leo_pixel
-    from: not_home
-    to: home
+  platform: state
+  entity_id: device_tracker.leo_pixel
+  from: 'not_home'
+  to: 'home'
 action:
   service: input_boolean.turn_on
   data:

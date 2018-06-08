@@ -1,0 +1,10 @@
+trigger:
+  platform: state
+  entity_id: input_boolean.night_mode
+  from: 'off'
+  to: 'on'
+action:
+  service: homeassistant.turn_off
+  data:
+    entity_id: 
+      - group.lights

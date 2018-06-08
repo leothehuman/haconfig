@@ -1,9 +1,8 @@
-alias: "Leo Departed"
 trigger:
-  - platform: state
-    entity_id: device_tracker.leo_pixel
-    from: home
-    to: not_home
+  platform: state
+  entity_id: device_tracker.leo_pixel
+  from: 'home'
+  to: 'not_home'
 action:
   service: input_boolean.turn_off
   data:

@@ -8,17 +8,17 @@ home:
     - group.people
     - group.devices
     - group.all_devices
+    - group.modes
     - group.sensors
     - group.switches
     - media_player.living_room_speaker
 lights:
   name: Lights
   entities:
-    - light.bedroom
+    - light.bathroom_light
     - light.bedroom_light
     - light.level # Entryway Light
     - light.level_2 # Dining Light
-    - light.living_room
     - light.living_room_light
     - light.office_light
     - light.micke_light
@@ -44,6 +44,7 @@ sensors:
     - binary_sensor.remote_motion
     - sensor.office_temperature
     - sensor.office_humidity
+    - sensor.office_pressure
     - sensor.office_illuminance
     - binary_sensor.office_motion
     - sun.sun
@@ -52,6 +53,10 @@ people:
   entities:
     - input_boolean.leo_home
     - input_boolean.emiji_home
+modes:
+  name: Modes
+  entities:
+    - input_boolean.night_mode
 devices:
   name: Devices
   entities:
@@ -69,7 +74,8 @@ stationary:
     - device_tracker.googlehome
     - device_tracker.78a6e132a2a0
     - device_tracker.d073d524fc07
-    - device_tracker.amazon08a3023aa
+    - device_tracker.amazon_echo
+    - device_tracker.amazon_echoshow
     - device_tracker.samsung
     - device_tracker.home
     - device_tracker.sonoff_micke

@@ -174,7 +174,7 @@ light:
     brightness_value_template: "{{ value }}"
     effect_value_template: "{{ value }}"
     rgb_command_mode: hex
-    retain: true
+    retain: false
     qos: 1
     payload_on: "ON"
     payload_off: "OFF"
@@ -248,6 +248,14 @@ sensor:
     payload_not_available: "Offline"
     device_class: humidity
   - platform: mqtt
+    name: "Office Pressure"
+    state_topic: "tele/sonoff-desk/SENSOR"
+    value_template: "{{ value_json['BMP280'].Pressure }}"
+    unit_of_measurement: "hPa"
+    availability_topic: "tele/sonoff-desk/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+  - platform: mqtt
     name: "Office Illuminance"
     state_topic: "tele/sonoff-desk/SENSOR"
     value_template: "{{ value_json['BH1750'].Illuminance }}"
@@ -293,5 +301,5 @@ device_tracker:
     ssh_key: /config/ha_rsa
 
 group: !include groups.yaml
-automation: !include automations.yaml
+automation: !include_dir_merge_named automation/
 script: !include scripts.yaml

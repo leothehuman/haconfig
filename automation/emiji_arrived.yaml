@@ -1,9 +1,8 @@
-alias: "Emiji Arrived"
 trigger:
-  - platform: state
-    entity_id: device_tracker.emiji_pixel
-    from: not_home
-    to: home
+  platform: state
+  entity_id: device_tracker.emiji_pixel
+  from: 'not_home'
+  to: 'home'
 action:
   service: input_boolean.turn_on
   data:

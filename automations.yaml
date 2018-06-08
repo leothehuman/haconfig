@@ -1,5 +1,0 @@
-- !include automation/leo_arrived.yaml
-- !include automation/leo_departed.yaml
-- !include automation/emiji_arrived.yaml
-- !include automation/emiji_departed.yaml
-- !include automation/night_mode_on.yaml
