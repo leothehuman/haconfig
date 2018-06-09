@@ -72,10 +72,11 @@ stationary:
     - device_tracker.gwb8d7af2b61b7
     - device_tracker.esp_7d288a
     - device_tracker.googlehome
-    - device_tracker.78a6e132a2a0
-    - device_tracker.d073d524fc07
+    - device_tracker.googlehome_bathroom
     - device_tracker.amazon_echo
     - device_tracker.amazon_echoshow
+    - device_tracker.78a6e132a2a0
+    - device_tracker.d073d524fc07
     - device_tracker.samsung
     - device_tracker.home
     - device_tracker.sonoff_micke
