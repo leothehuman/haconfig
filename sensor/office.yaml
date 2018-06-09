@@ -1,0 +1,35 @@
+- platform: mqtt
+  name: "Office Temperature"
+  state_topic: "tele/sonoff-desk/SENSOR"
+  value_template: "{{ value_json['DHT22'].Temperature }}"
+  unit_of_measurement: "C"
+  availability_topic: "tele/sonoff-desk/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  device_class: temperature
+- platform: mqtt
+  name: "Office Humidity"
+  state_topic: "tele/sonoff-desk/SENSOR"
+  value_template: "{{ value_json['DHT22'].Humidity }}"
+  unit_of_measurement: "%"
+  availability_topic: "tele/sonoff-desk/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  device_class: humidity
+- platform: mqtt
+  name: "Office Pressure"
+  state_topic: "tele/sonoff-desk/SENSOR"
+  value_template: "{{ value_json['BMP280'].Pressure }}"
+  unit_of_measurement: "hPa"
+  availability_topic: "tele/sonoff-desk/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+- platform: mqtt
+  name: "Office Illuminance"
+  state_topic: "tele/sonoff-desk/SENSOR"
+  value_template: "{{ value_json['BH1750'].Illuminance }}"
+  unit_of_measurement: "lx"
+  availability_topic: "tele/sonoff-desk/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  device_class: illuminance

@@ -1,0 +1,37 @@
+platform: mqtt
+name: "Desk Light"
+state_topic: "stat/sonoff-desk/POWER"
+command_topic: "cmnd/sonoff-desk/POWER"
+payload_on: "ON"
+payload_off: "OFF"
+brightness_command_topic: "cmnd/sonoff-desk/Dimmer"
+brightness_state_topic: "stat/sonoff-desk/RESULT"
+brightness_value_template: "{{ value_json.Dimmer }}"
+brightness_scale: 100
+rgb_state_topic: "stat/sonoff-desk/RESULT"
+rgb_value_template: "{{ value_json.Color }}"
+rgb_command_topic: "cmnd/sonoff-desk/Color"
+effect_command_topic: "cmnd/sonoff-desk/Scheme"
+effect_state_topic: "stat/sonoff-desk/RESULT"
+effect_value_template: "{{ value_json.Scheme }}"
+rgb_command_mode: hex
+on_command_type: brightness
+retain: true
+qos: 1
+availability_topic: "tele/sonoff-desk/LWT"
+payload_available: "Online"
+payload_not_available: "Offline"
+effect_list:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12

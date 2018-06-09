@@ -1,0 +1,37 @@
+platform: mqtt
+name: "Closet Light"
+effect_list:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+state_topic: "stat/sonoff-closet/POWER"
+command_topic: "cmnd/sonoff-closet/POWER"
+brightness_state_topic: "stat/sonoff-closet/Dimmer"
+brightness_command_topic: "cmnd/sonoff-closet/Dimmer"
+brightness_scale: 100
+rgb_command_template: "{{ '%02x%02x%02x00' | format(red, green, blue)}}"
+rgb_state_topic: "stat/sonoff-closet/Color"
+rgb_command_topic: "cmnd/sonoff-closet/Color"
+white_command_template: "{{ '000000%02x' }}"
+white_state_topic: "stat/sonoff-closet/Color"
+white_command_topic: "cmnd/sonoff-closet/Color"
+effect_command_topic: "cmnd/sonoff-closet/Scheme"
+effect_state_topic: "stat/sonoff-closet/Scheme"
+state_value_template: "{{ value }}"
+brightness_value_template: "{{ value }}"
+effect_value_template: "{{ value }}"
+rgb_command_mode: hex
+retain: true
+qos: 1
+payload_on: "ON"
+payload_off: "OFF"

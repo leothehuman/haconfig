@@ -1,0 +1,11 @@
+platform: mqtt
+name: "Office Light"
+state_topic: "stat/sonoff-officelight/POWER"
+command_topic: "cmnd/sonoff-officelight/POWER"
+availability_topic: "tele/sonoff-officelight/LWT"
+qos: 1
+payload_on: "ON"
+payload_off: "OFF"
+payload_available: "Online"
+payload_not_available: "Offline"
+retain: true
