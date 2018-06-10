@@ -1,0 +1,10 @@
+- platform: mqtt
+  name: "Office Motion"
+  state_topic: "cmnd/desk-motion/POWER2"
+  payload_on: "ON"
+  payload_off: "OFF"
+  availability_topic: "tele/sonoff-desk/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  device_class: motion
+

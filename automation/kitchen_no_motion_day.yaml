@@ -4,8 +4,7 @@ trigger:
   entity_id: binary_sensor.kitchen_motion
   from: 'on'
   to: 'off'
-  for:
-    minutes: 3
+  for: !include ../no_motion_delay.yaml
 condition:
   condition: state
   entity_id: 'input_boolean.night_mode'

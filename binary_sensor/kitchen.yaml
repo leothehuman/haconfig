@@ -1,0 +1,9 @@
+- platform: mqtt
+  name: "Kitchen Motion"
+  state_topic: "cmnd/wemos1-motion/POWER2"
+  payload_on: "ON"
+  payload_off: "OFF"
+  availability_topic: "tele/wemos1/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  device_class: motion

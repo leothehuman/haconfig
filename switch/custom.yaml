@@ -1,0 +1,12 @@
+platform: mqtt
+name: "Custom Switch"
+state_topic: "stat/sonoff-custom/POWER"
+command_topic: "cmnd/sonoff-custom/POWER"
+availability_topic: "tele/sonoff-custom/LWT"
+qos: 1
+payload_on: "ON"
+payload_off: "OFF"
+payload_available: "Online"
+payload_not_available: "Offline"
+retain: true
+

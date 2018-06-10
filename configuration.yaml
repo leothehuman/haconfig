@@ -74,52 +74,9 @@ zwave:
   network_key: !secret network_key
 
 light: !include_dir_list light/
-switch:
-  - platform: mqtt
-    name: "Wallflower"
-    state_topic: "stat/sonoff-wallflower/POWER"
-    command_topic: "cmnd/sonoff-wallflower/POWER"
-    availability_topic: "tele/sonoff-wallflower/LWT"
-    qos: 1
-    payload_on: "ON"
-    payload_off: "OFF"
-    payload_available: "Online"
-    payload_not_available: "Offline"
-    retain: true
-  - platform: mqtt
-    name: "Custom Switch"
-    state_topic: "stat/sonoff-custom/POWER"
-    command_topic: "cmnd/sonoff-custom/POWER"
-    availability_topic: "tele/sonoff-custom/LWT"
-    qos: 1
-    payload_on: "ON"
-    payload_off: "OFF"
-    payload_available: "Online"
-    payload_not_available: "Offline"
-    retain: true
+switch: !include_dir_list switch/
 sensor: !include_dir_merge_list sensor/
-binary_sensor:
-  - platform: mqtt
-    name: "Kitchen Motion"
-    state_topic: "cmnd/wemos1-motion/POWER2"
-    payload_on: "ON"
-    payload_off: "OFF"
-    availability_topic: "tele/wemos1/LWT"
-    payload_available: "Online"
-    payload_not_available: "Offline"
-    device_class: motion
-  - platform: mqtt
-    name: "Office Motion"
-    state_topic: "cmnd/desk-motion/POWER2"
-    payload_on: "ON"
-    payload_off: "OFF"
-    availability_topic: "tele/sonoff-desk/LWT"
-    payload_available: "Online"
-    payload_not_available: "Offline"
-    device_class: motion
-  - platform: workday
-    name: "Workday"
-    country: US
+binary_sensor: !include_dir_merge_list binary_sensor/
 input_boolean:
   leo_home:
     name: Leo Home
