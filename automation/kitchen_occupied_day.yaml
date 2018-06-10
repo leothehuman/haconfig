@@ -1,7 +1,7 @@
-alias: Kitchen Motion Day
+alias: Kitchen Occupied Day
 trigger:
   platform: state
-  entity_id: binary_sensor.kitchen_motion
+  entity_id: binary_sensor.kitchen_occupied
   from: 'off'
   to: 'on'
 condition:

@@ -45,11 +45,13 @@ sensors:
     - sensor.kitchen_pressure
     - sensor.kitchen_illuminance
     - binary_sensor.kitchen_motion
+    - binary_sensor.kitchen_occupied
     - sensor.office_temperature
     - sensor.office_humidity
     - sensor.office_pressure
     - sensor.office_illuminance
     - binary_sensor.office_motion
+    - binary_sensor.office_occupied
     - binary_sensor.workday
     - sun.sun
 people:
@@ -73,13 +75,11 @@ devices:
 stationary:
   name: Stationary Devices
   entities:
-    - device_tracker.gwb8d7af2b61b7
-    - device_tracker.googlehome
-    - device_tracker.googlehome_bathroom
     - device_tracker.amazon_echo
     - device_tracker.amazon_echoshow
-    - device_tracker.78a6e132a2a0
-    - device_tracker.d073d524fc07
+    - device_tracker.googlehome
+    - device_tracker.googlehome_bathroom
+    - device_tracker.chromecast
     - device_tracker.samsung
     - device_tracker.home
     - device_tracker.magichome_closet
@@ -88,5 +88,7 @@ stationary:
     - device_tracker.sonoff_office
     - device_tracker.sonoff_wallflower
     - device_tracker.sonoff_custom
-    - device_tracker.chromecast
     - device_tracker.sonoff0076
+    - device_tracker.gwb8d7af2b61b7
+    - device_tracker.78a6e132a2a0
+    - device_tracker.d073d524fc07

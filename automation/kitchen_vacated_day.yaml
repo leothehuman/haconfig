@@ -1,16 +1,15 @@
-alias: Kitchen No Motion Night
+alias: Kitchen Vacated Day
 trigger:
   platform: state
-  entity_id: binary_sensor.kitchen_motion
+  entity_id: binary_sensor.kitchen_occupied
   from: 'on'
   to: 'off'
-  for: !include ../no_motion_delay.yaml
 condition:
   condition: state
   entity_id: 'input_boolean.night_mode'
-  state: 'on'
+  state: 'off'
 action:
   service: homeassistant.turn_off
   data:
     entity_id: 
-      - switch.switch_2
+      - switch.switch

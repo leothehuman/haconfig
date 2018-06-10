@@ -43,6 +43,12 @@ discovery:
 conversation:
 
 # Enables support for tracking state changes over time
+recorder:
+  exclude:
+    entities:
+      - binary_sensor.kitchen_motion
+      - binary_sensor.office_motion
+      - group.sensors
 history:
 
 # View all events in a logbook
@@ -77,13 +83,7 @@ light: !include_dir_list light/
 switch: !include_dir_list switch/
 sensor: !include_dir_merge_list sensor/
 binary_sensor: !include_dir_merge_list binary_sensor/
-input_boolean:
-  leo_home:
-    name: Leo Home
-  emiji_home:
-    name: Emiji Home
-  night_mode:
-    name: Night Mode
+input_boolean: !include input_boolean.yaml
 
 tradfri:
   allow_tradfri_groups: false
