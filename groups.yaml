@@ -44,7 +44,7 @@ sensors:
     - sensor.kitchen_humidity
     - sensor.kitchen_pressure
     - sensor.kitchen_illuminance
-    - binary_sensor.remote_motion
+    - binary_sensor.kitchen_motion
     - sensor.office_temperature
     - sensor.office_humidity
     - sensor.office_pressure
