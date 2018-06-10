@@ -1,5 +1,5 @@
 - platform: mqtt
-  name: "Remote Temperature"
+  name: "Kitchen Temperature"
   state_topic: "tele/wemos1/SENSOR"
   value_template: "{{ value_json['BME280'].Temperature }}"
   unit_of_measurement: "C"
@@ -8,7 +8,7 @@
   payload_not_available: "Offline"
   device_class: temperature
 - platform: mqtt
-  name: "Remote Humidity"
+  name: "Kitchen Humidity"
   state_topic: "tele/wemos1/SENSOR"
   value_template: "{{ value_json['BME280'].Humidity }}"
   unit_of_measurement: "%"
@@ -17,7 +17,7 @@
   payload_not_available: "Offline"
   device_class: humidity
 - platform: mqtt
-  name: "Remote Pressure"
+  name: "Kitchen Pressure"
   state_topic: "tele/wemos1/SENSOR"
   value_template: "{{ value_json['BME280'].Pressure }}"
   unit_of_measurement: "hPa"
@@ -25,7 +25,7 @@
   payload_available: "Online"
   payload_not_available: "Offline"
 - platform: mqtt
-  name: "Remote Illuminance"
+  name: "Kitchen Illuminance"
   state_topic: "tele/wemos1/SENSOR"
   value_template: "{{ value_json['BH1750'].Illuminance }}"
   unit_of_measurement: "lx"
