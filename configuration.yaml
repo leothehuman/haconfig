@@ -100,7 +100,7 @@ switch:
 sensor: !include_dir_merge_list sensor/
 binary_sensor:
   - platform: mqtt
-    name: "Remote Motion"
+    name: "Kitchen Motion"
     state_topic: "cmnd/wemos1-motion/POWER2"
     payload_on: "ON"
     payload_off: "OFF"
