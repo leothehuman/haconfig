@@ -31,7 +31,7 @@ switches:
   name: Switches
   view: false
   entities:
-    - switch.ikea_gateway_switch # Ikea Gateway Switch
+    - switch.wallflower
     - switch.custom_switch
 sensors:
   name: Sensors
@@ -40,6 +40,7 @@ sensors:
     - sensor.yr_symbol
     - sensor.remote_temperature
     - sensor.remote_humidity
+    - sensor.remote_pressure
     - sensor.remote_illuminance
     - binary_sensor.remote_motion
     - sensor.office_temperature
@@ -47,6 +48,7 @@ sensors:
     - sensor.office_pressure
     - sensor.office_illuminance
     - binary_sensor.office_motion
+    - binary_sensor.workday
     - sun.sun
 people:
   name: People
@@ -70,7 +72,6 @@ stationary:
   name: Stationary Devices
   entities:
     - device_tracker.gwb8d7af2b61b7
-    - device_tracker.esp_7d288a
     - device_tracker.googlehome
     - device_tracker.googlehome_bathroom
     - device_tracker.amazon_echo
@@ -79,10 +80,11 @@ stationary:
     - device_tracker.d073d524fc07
     - device_tracker.samsung
     - device_tracker.home
+    - device_tracker.magichome_closet
+    - device_tracker.sonoff_desk
     - device_tracker.sonoff_micke
     - device_tracker.sonoff_office
+    - device_tracker.sonoff_wallflower
     - device_tracker.sonoff_custom
-    - device_tracker.magichome_closet
     - device_tracker.chromecast
-    - device_tracker.sonoff_desk
     - device_tracker.sonoff0076

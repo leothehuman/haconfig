@@ -2,7 +2,6 @@ homeassistant:
   # Name of the location where Home Assistant is running
   name: Home
   # Location required to calculate the time the sun rises and sets
-
   latitude: 37.7697
   longitude: -122.3933
   # Impacts weather/sunrise data (altitude above sea level in meters)
@@ -65,18 +64,10 @@ tts:
 
 # Cloud
 cloud:
-  alexa:
-    filter:
-      exclude_entities:
-        - light.bedroom
-        - light.living_room
-        - light.office
+  alexa: 
+    filter: !include assistant_filter.yaml
   google_actions:
-    filter:
-      exclude_entities:
-        - light.bedroom
-        - light.living_room
-        - light.office
+    filter: !include assistant_filter.yaml
 
 zwave:
   usb_path: /zwavestick
@@ -85,10 +76,10 @@ zwave:
 light: !include_dir_list light/
 switch:
   - platform: mqtt
-    name: "Ikea Gateway Switch"
-    state_topic: "stat/sonoff-ikeagateway/POWER"
-    command_topic: "cmnd/sonoff-ikeagateway/POWER"
-    availability_topic: "tele/sonoff-ikeagateway/LWT"
+    name: "Wallflower"
+    state_topic: "stat/sonoff-wallflower/POWER"
+    command_topic: "cmnd/sonoff-wallflower/POWER"
+    availability_topic: "tele/sonoff-wallflower/LWT"
     qos: 1
     payload_on: "ON"
     payload_off: "OFF"
@@ -126,6 +117,9 @@ binary_sensor:
     payload_available: "Online"
     payload_not_available: "Offline"
     device_class: motion
+  - platform: workday
+    name: "Workday"
+    country: US
 input_boolean:
   leo_home:
     name: Leo Home
