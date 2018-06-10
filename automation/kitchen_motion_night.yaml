@@ -1,7 +1,7 @@
 alias: Kitchen Motion Night
 trigger:
   platform: state
-  entity_id: binary_sensor.remote_motion
+  entity_id: binary_sensor.kitchen_motion
   from: 'off'
   to: 'on'
 condition:
