@@ -1,0 +1,17 @@
+alias: Kitchen No Motion Night
+trigger:
+  platform: state
+  entity_id: binary_sensor.remote_motion
+  from: 'on'
+  to: 'off'
+  for:
+    minutes: 3
+condition:
+  condition: state
+  entity_id: 'input_boolean.night_mode'
+  state: 'on'
+action:
+  service: homeassistant.turn_off
+  data:
+    entity_id: 
+      - switch.switch_2
