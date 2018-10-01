@@ -1,5 +1,5 @@
 platform: mqtt
-name: "Peripherals Switch"
+name: "Peripherals"
 state_topic: "stat/sonoff-peripherals/POWER"
 command_topic: "cmnd/sonoff-peripherals/POWER"
 availability_topic: "tele/sonoff-peripherals/LWT"

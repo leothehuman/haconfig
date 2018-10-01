@@ -34,6 +34,8 @@ switches:
   view: false
   entities:
     - switch.wallflower
+    - switch.peripherals
+    - switch.anet
     - switch.custom_switch
 sensors:
   name: Sensors
