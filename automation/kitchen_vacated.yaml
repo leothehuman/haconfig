@@ -1,0 +1,11 @@
+alias: Kitchen Vacated
+trigger:
+  platform: state
+  entity_id: binary_sensor.kitchen_occupied
+  from: 'on'
+  to: 'off'
+action:
+  service: homeassistant.turn_off
+  data:
+    entity_id:
+      - switch.switch_2

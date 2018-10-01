@@ -1,0 +1,11 @@
+alias: Office Occupied
+trigger:
+  platform: state
+  entity_id: binary_sensor.office_occupied
+  from: 'off'
+  to: 'on'
+action:
+  service: homeassistant.turn_on
+  data:
+    entity_id:
+      - light.desk_light

@@ -1,0 +1,18 @@
+alias: Kitchen Occupied
+trigger:
+  platform: state
+  entity_id: binary_sensor.kitchen_occupied
+  from: 'off'
+  to: 'on'
+condition:
+  - condition: state
+    entity_id: switch.switch
+    state: 'off'
+  - condition: state
+    entity_id: light.level_2
+    state: 'off'
+action:
+  service: homeassistant.turn_on
+  data:
+    entity_id:
+      - switch.switch_2

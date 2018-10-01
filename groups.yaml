@@ -42,7 +42,6 @@ sensors:
     - sensor.yr_symbol
     - sensor.kitchen_temperature
     - sensor.kitchen_humidity
-    - sensor.kitchen_pressure
     - sensor.kitchen_illuminance
     - binary_sensor.kitchen_motion
     - binary_sensor.kitchen_occupied
@@ -63,6 +62,14 @@ modes:
   name: Modes
   entities:
     - input_boolean.night_mode
+bed:
+  name: Bed
+  entities:
+    - sensor.bed_weight_0
+    - sensor.bed_weight_1
+    - sensor.bed_weight_2
+    - sensor.bed_weight_3
+    - sensor.bed_weight_total
 devices:
   name: Devices
   entities:
@@ -79,9 +86,11 @@ stationary:
     - device_tracker.amazon_echoshow
     - device_tracker.googlehome
     - device_tracker.googlehome_bathroom
+    - device_tracker.viziocastdisplay
     - device_tracker.chromecast
     - device_tracker.samsung
     - device_tracker.home
+    - device_tracker.octopi
     - device_tracker.magichome_closet
     - device_tracker.sonoff_desk
     - device_tracker.sonoff_micke
@@ -89,6 +98,15 @@ stationary:
     - device_tracker.sonoff_wallflower
     - device_tracker.sonoff_custom
     - device_tracker.sonoff0076
+    - device_tracker.sonoff6034
     - device_tracker.gwb8d7af2b61b7
     - device_tracker.78a6e132a2a0
     - device_tracker.d073d524fc07
+    - device_tracker.espressif
+    - device_tracker.espressif_2
+    - device_tracker.espressif_3
+    - device_tracker.rockrobo
+    - device_tracker.ubuntu
+    - device_tracker.npi31769f
+    - device_tracker.000f6003af43
+    - device_tracker.b88aec80adb4

@@ -1,0 +1,25 @@
+- platform: mqtt
+  name: "Bed Weight 0"
+  state_topic: "tele/bed/weight0"
+  unit_of_measurement: "g"
+- platform: mqtt
+  name: "Bed Weight 1"
+  state_topic: "tele/bed/weight1"
+  unit_of_measurement: "g"
+- platform: mqtt
+  name: "Bed Weight 2"
+  state_topic: "tele/bed/weight2"
+  unit_of_measurement: "g"
+- platform: mqtt
+  name: "Bed Weight 3"
+  state_topic: "tele/bed/weight3"
+  unit_of_measurement: "g"
+- platform: template
+  sensors:
+    bed_weight_total:
+      friendly_name: "Total Bed Weight"
+      unit_of_measurement: "kg"
+      value_template: "{{ (((states('sensor.bed_weight_0')|int) + (states('sensor.bed_weight_1')|int) + (states('sensor.bed_weight_2')|int) + (states('sensor.bed_weight_3')|int)) / 1000) | int }}"
+#  availability_topic: "tele/bed/LWT"
+#  payload_available: "Online"
+#  payload_not_available: "Offline"
