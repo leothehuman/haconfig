@@ -1,0 +1,10 @@
+alias: Kitchen Sensor Touched
+trigger:
+  platform: mqtt
+  topic: cmnd/kitchen-switch/POWER3
+  payload: 'TOGGLE'
+action:
+  service: homeassistant.toggle
+  data:
+    entity_id:
+      - switch.kitchen_light

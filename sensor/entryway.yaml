@@ -1,27 +1,27 @@
 - platform: mqtt
-  name: "Kitchen Temperature"
-  state_topic: "tele/sensors-kitchen/SENSOR"
+  name: "Entryway Temperature"
+  state_topic: "tele/sensors-entryway/SENSOR"
   value_template: "{{ value_json['AM2301'].Temperature }}"
   unit_of_measurement: "C"
-  availability_topic: "tele/sensors-kitchen/LWT"
+  availability_topic: "tele/sensors-entryway/LWT"
   payload_available: "Online"
   payload_not_available: "Offline"
   device_class: temperature
 - platform: mqtt
-  name: "Kitchen Humidity"
-  state_topic: "tele/sensors-kitchen/SENSOR"
+  name: "Entryway Humidity"
+  state_topic: "tele/sensors-entryway/SENSOR"
   value_template: "{{ value_json['AM2301'].Humidity }}"
   unit_of_measurement: "%"
-  availability_topic: "tele/sensors-kitchen/LWT"
+  availability_topic: "tele/sensors-entryway/LWT"
   payload_available: "Online"
   payload_not_available: "Offline"
   device_class: humidity
 - platform: mqtt
-  name: "Kitchen Illuminance"
-  state_topic: "tele/sensors-kitchen/SENSOR"
+  name: "Entryway Illuminance"
+  state_topic: "tele/sensors-entryway/SENSOR"
   value_template: "{{ (value_json['ANALOG'].A0 * 100 / 1023) | round(1) }}"
   unit_of_measurement: "%"
-  availability_topic: "tele/sensors-kitchen/LWT"
+  availability_topic: "tele/sensors-entryway/LWT"
   payload_available: "Online"
   payload_not_available: "Offline"
   device_class: illuminance

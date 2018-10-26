@@ -5,6 +5,15 @@ trigger:
   from: 'not_home'
   to: 'home'
 action:
-  service: input_boolean.turn_on
-  data:
-    entity_id: input_boolean.leo_home
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.leo_home
+  - service: light.turn_on
+    data:
+      entity_id: light.entryway_light
+  - service: light.turn_on
+    data:
+      entity_id: light.office_light
+  - service: switch.turn_on
+    data:
+      entity_id: switch.peripherals

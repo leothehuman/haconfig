@@ -1,11 +1,11 @@
-alias: Kitchen Vacated
+alias: Closet Vacated
 trigger:
   platform: state
-  entity_id: binary_sensor.kitchen_occupied
+  entity_id: binary_sensor.closet_occupied
   from: 'on'
   to: 'off'
 action:
   service: homeassistant.turn_off
   data:
     entity_id:
-      - switch.bar_light
+      - light.closet_light

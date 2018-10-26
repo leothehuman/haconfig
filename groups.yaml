@@ -1,6 +1,5 @@
 #default_view:
-#  view: yes
-home:
+home_view:
   view: yes
   icon: mdi:home
   entities:
@@ -9,52 +8,48 @@ home:
     - group.devices
     - group.all_devices
     - group.modes
+    - group.office_sensors
+    - group.kitchen_sensors
+    - group.bedroom_sensors
     - group.sensors
     - group.switches
+    - group.octoprint
     - media_player.home_group
     - media_player.living_room_speaker
     - media_player.bathroom_speaker
-lights:
-  name: Lights
+    - group.entryway_sensors
+    - group.bathroom_sensors
+octoprint_view:
+  view: yes
+  icon: mdi:printer
   entities:
-    - light.bathroom_light
-    - light.bedroom_light
-    - light.level # Entryway Light
-    - light.level_2 # Dining Light
-    - light.living_room_light
+    - camera.octoprintcamera
+    - group.octoprint
+office_view:
+  view: yes
+  icon: mdi:file-cabinet
+  entities:
     - light.office_light
-    - light.micke_light
     - light.desk_light
-    - light.desk_spotlight
+    - switch.desk_spotlight_top
+    - switch.desk_spotlight_bottom
+    - group.office_sensors
+bedroom_view:
+  view: yes
+  icon: mdi:bed-empty
+  entities:
+    - light.bedroom_light
+    - light.micke_light
     - light.closet_light
-    - switch.switch # Kitchen Light
-    - switch.switch_2 # Bar light
-switches:
-  name: Switches
-  view: false
+    - group.bed
+    - group.bedroom_sensors
+kitchen_view:
+  view: yes
+  icon: mdi:fridge
   entities:
-    - switch.wallflower
-    - switch.peripherals
-    - switch.anet
-    - switch.custom_switch
-sensors:
-  name: Sensors
-  entities:
-    - sensor.tradfri_remote_control
-    - sensor.yr_symbol
-    - sensor.kitchen_temperature
-    - sensor.kitchen_humidity
-    - sensor.kitchen_illuminance
-    - binary_sensor.kitchen_motion
-    - binary_sensor.kitchen_occupied
-    - sensor.office_temperature
-    - sensor.office_humidity
-    - sensor.office_pressure
-    - sensor.office_illuminance
-    - binary_sensor.office_motion
-    - binary_sensor.office_occupied
-    - binary_sensor.workday
-    - sun.sun
+    - switch.kitchen_light
+    - switch.bar_light
+    - group.kitchen_sensors
 people:
   name: People
   entities:
@@ -64,6 +59,71 @@ modes:
   name: Modes
   entities:
     - input_boolean.night_mode
+lights:
+  name: Lights
+  entities:
+    - light.bathroom_light
+    - light.entryway_light
+    - light.dining_light
+    - light.office_light
+    - light.micke_light
+    - light.desk_light
+    - light.bedroom_light
+    - light.closet_light
+    - switch.kitchen_light
+    - switch.bar_light
+    - switch.desk_spotlight_bottom
+    - switch.desk_spotlight_top
+switches:
+  name: Switches
+  view: false
+  entities:
+    - switch.wallflower
+    - switch.peripherals
+    - switch.anet
+    - switch.custom_switch
+octoprint:
+  name: Octoprint
+  entities:
+    - sensor.octoprint_current_state
+    - binary_sensor.octoprint_printing_error
+    - binary_sensor.octoprint_printing
+    - sensor.octoprint_actual_bed_temp
+    - sensor.octoprint_target_bed_temp
+    - sensor.octoprint_actual_tool0_temp
+    - sensor.octoprint_target_tool0_temp
+    - sensor.octoprint_job_percentage
+    - sensor.octoprint_time_elapsed
+    - sensor.octoprint_time_remaining 
+office_sensors:
+  name: Office Sensors
+  entities:
+    - sensor.office_temperature
+    - sensor.office_humidity
+    - sensor.office_pressure
+    - sensor.office_illuminance
+    - binary_sensor.office_motion
+    - binary_sensor.office_occupied
+kitchen_sensors:
+  name: Kitchen Sensors
+  entities:
+    - sensor.kitchen_temperature
+    - sensor.kitchen_humidity
+    - sensor.kitchen_illuminance
+    - binary_sensor.kitchen_motion
+    - binary_sensor.kitchen_occupied
+bedroom_sensors:
+  name: Bedroom Sensors
+  entities:
+    - binary_sensor.closet_motion
+    - binary_sensor.closet_occupied
+sensors:
+  name: External Sensors
+  entities:
+    - sensor.yr_symbol
+    - binary_sensor.workday
+    - sun.sun
+    - updater.updater
 bed:
   name: Bed
   entities:
@@ -81,6 +141,22 @@ devices:
     - device_tracker.asusgamepad
     - device_tracker.leo_pixel
     - device_tracker.emiji_pixel
+entryway_sensors:
+  name: Entryway Sensors
+  entities:
+    - sensor.entryway_temperature
+    - sensor.entryway_humidity
+    - sensor.entryway_illuminance
+    - binary_sensor.entryway_motion
+    - binary_sensor.entryway_occupied
+bathroom_sensors:
+  name: Bathroom Sensors
+  entities:
+    - sensor.bathroom_temperature
+    - sensor.bathroom_humidity
+    - sensor.bathroom_illuminance
+    - binary_sensor.bathroom_motion
+    - binary_sensor.bathroom_occupied
 stationary:
   name: Stationary Devices
   entities:
@@ -90,6 +166,7 @@ stationary:
     - device_tracker.googlehome_bathroom
     - device_tracker.viziocastdisplay
     - device_tracker.chromecast
+    - device_tracker.living_room_tv
     - device_tracker.samsung
     - device_tracker.home
     - device_tracker.octopi
@@ -97,18 +174,22 @@ stationary:
     - device_tracker.sonoff_desk
     - device_tracker.sonoff_micke
     - device_tracker.sonoff_office
-    - device_tracker.sonoff_wallflower
+    - device_tracker.sonoff_anet
     - device_tracker.sonoff_custom
-    - device_tracker.sonoff0076
-    - device_tracker.sonoff6034
-    - device_tracker.gwb8d7af2b61b7
-    - device_tracker.78a6e132a2a0
-    - device_tracker.d073d524fc07
+    - device_tracker.sonoff_peripherals
+    - device_tracker.sonoff_wallflower
+    - device_tracker.sensors_kitchen
+    - device_tracker.sensors_entryway
+    - device_tracker.sensors_bathroom
+    - device_tracker.leodesktop
     - device_tracker.espressif
     - device_tracker.espressif_2
     - device_tracker.espressif_3
     - device_tracker.rockrobo
     - device_tracker.ubuntu
     - device_tracker.npi31769f
+    - device_tracker.78a6e132a2a0
+    - device_tracker.d073d524fc07
     - device_tracker.000f6003af43
     - device_tracker.b88aec80adb4
+    - device_tracker.a06a44609951

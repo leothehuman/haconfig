@@ -3,7 +3,7 @@
   state_topic: "cmnd/kitchen-switch/POWER2"
   payload_on: "ON"
   payload_off: "OFF"
-  availability_topic: "tele/kitchen/LWT"
+  availability_topic: "tele/sensors-kitchen/LWT"
   payload_available: "Online"
   payload_not_available: "Offline"
   device_class: motion

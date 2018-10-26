@@ -1,0 +1,11 @@
+alias: Entryway Vacated
+trigger:
+  platform: state
+  entity_id: binary_sensor.entryway_occupied
+  from: 'on'
+  to: 'off'
+action:
+  service: light.turn_off
+  data:
+    entity_id:
+      - light.entryway_light

@@ -1,0 +1,16 @@
+- platform: mqtt
+  name: "Entryway Motion"
+  state_topic: "cmnd/entryway-switch/POWER2"
+  payload_on: "ON"
+  payload_off: "OFF"
+  availability_topic: "tele/sensors-entryway/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  device_class: motion
+- platform: template
+  sensors:
+    entryway_occupied:
+      friendly_name: "Entryway Occupied"
+      value_template: "{{ is_state('binary_sensor.entryway_motion', 'on') }}"
+      device_class: occupancy
+      delay_off: !include ../no_motion_delay.yaml

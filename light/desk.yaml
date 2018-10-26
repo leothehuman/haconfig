@@ -16,6 +16,7 @@ effect_state_topic: "stat/sonoff-desk/RESULT"
 effect_value_template: "{{ value_json.Scheme }}"
 rgb_command_mode: hex
 qos: 1
+retain: true
 availability_topic: "tele/sonoff-desk/LWT"
 payload_available: "Online"
 payload_not_available: "Offline"

@@ -4,11 +4,14 @@ light.living_room:
   hidden: true
 light.office:
   hidden: true
-switch.switch:
+switch.kitchen_light:
   icon: mdi:lightbulb
-switch.switch_2:
+switch.bar_light:
   icon: mdi:lightbulb
-
+switch.desk_spotlight_top:
+  icon: mdi:lightbulb
+switch.desk_spotlight_bottom:
+  icon: mdi:lightbulb
 binary_sensor.sensor:
   hidden: true
 zwave.zooz_zse40_4in1_sensor:

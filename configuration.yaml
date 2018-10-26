@@ -51,7 +51,13 @@ recorder:
     entities:
       - binary_sensor.kitchen_motion
       - binary_sensor.office_motion
+      - binary_sensor.bathroom_motion
+      - binary_sensor.entryway_motion
+      - binary_sensor.closet_motion
       - group.sensors
+      - group.kitchen_sensors
+    domains:
+      - group
 history:
 
 # View all events in a logbook
@@ -78,14 +84,23 @@ zwave:
   usb_path: /zwavestick
   network_key: !secret network_key
 
+octoprint:
+  host: 192.168.1.4
+  api_key: !secret octoprint_key
+  bed: true
+  number_of_tools: 1
+
+camera:
+  - platform: mjpeg
+    name: OctoPrintCamera
+    still_image_url: http://192.168.1.4/webcam/?action=snapshot
+    mjpeg_url: http://192.168.1.4/webcam/?action=stream
+
 light: !include_dir_list light/
 switch: !include_dir_list switch/
 sensor: !include_dir_merge_list sensor/
 binary_sensor: !include_dir_merge_list binary_sensor/
 input_boolean: !include input_boolean.yaml
-
-tradfri:
-  allow_tradfri_groups: false
 
 device_tracker:
   - platform: asuswrt

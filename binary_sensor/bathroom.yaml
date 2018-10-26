@@ -1,0 +1,16 @@
+- platform: mqtt
+  name: "Bathroom Motion"
+  state_topic: "cmnd/bathroom-switch/POWER2"
+  payload_on: "ON"
+  payload_off: "OFF"
+  availability_topic: "tele/sensors-bathroom/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  device_class: motion
+- platform: template
+  sensors:
+    bathroom_occupied:
+      friendly_name: "Bathroom Occupied"
+      value_template: "{{ is_state('binary_sensor.bathroom_motion', 'on') }}"
+      device_class: occupancy
+      delay_off: !include ../no_motion_delay.yaml

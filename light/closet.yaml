@@ -23,7 +23,7 @@ effect_list:
   - 2
   - 3
   - 4
-retain: false
+retain: true
 qos: 1
 payload_on: "ON"
 payload_off: "OFF"

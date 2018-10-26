@@ -1,0 +1,12 @@
+alias: Entryway Occupied
+trigger:
+  platform: state
+  entity_id: binary_sensor.entryway_occupied
+  from: 'off'
+  to: 'on'
+action:
+  service: light.turn_on
+  data_template:
+    brightness: '{{ 31 if is_state("input_boolean.night_mode", "on") else 255 }}'
+    entity_id:
+      - light.entryway_light
