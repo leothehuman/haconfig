@@ -25,14 +25,16 @@ octoprint_view:
   entities:
     - camera.octoprintcamera
     - group.octoprint
+    - switch.anet
 office_view:
   view: yes
-  icon: mdi:file-cabinet
+  icon: mdi:briefcase
   entities:
     - light.office_light
     - light.desk_light
     - switch.desk_spotlight_top
     - switch.desk_spotlight_bottom
+    - switch.peripherals
     - group.office_sensors
 bedroom_view:
   view: yes
