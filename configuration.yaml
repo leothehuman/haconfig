@@ -54,8 +54,6 @@ recorder:
       - binary_sensor.bathroom_motion
       - binary_sensor.entryway_motion
       - binary_sensor.closet_motion
-      - group.sensors
-      - group.kitchen_sensors
     domains:
       - group
 history:

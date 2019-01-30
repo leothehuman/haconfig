@@ -1,7 +1,7 @@
 alias: Closet Occupied
 trigger:
   platform: state
-  entity_id: binary_sensor.closet_occupied
+  entity_id: binary_sensor.closet_motion
   from: 'off'
   to: 'on'
 action:

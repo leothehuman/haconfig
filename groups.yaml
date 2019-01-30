@@ -72,6 +72,7 @@ lights:
     - light.desk_light
     - light.bedroom_light
     - light.closet_light
+    - light.bookcase_light
     - switch.kitchen_light
     - switch.bar_light
     - switch.desk_spotlight_bottom

@@ -8,9 +8,6 @@ condition:
   - condition: state
     entity_id: switch.kitchen_light
     state: 'off'
-  - condition: state
-    entity_id: light.dining_light
-    state: 'off'
 action:
   service: homeassistant.turn_on
   data:
